@@ -1,0 +1,13 @@
+<input autocomplete="off" id="autocomplete-input" type="text" (input)="onSearch($event)" [value]="value" (onBlur)="hide()">
+
+<div [ngClass]="(!visibility) ? 'close' : 'open'">
+  <div class="autocomplete-panel">
+    <div
+        [ngClass]="(idx === tabIndex) ? 'option active' : 'option'" 
+        *ngFor="let result of results; let idx=index"
+        #options 
+        (click)="onSelect(result)">
+      <span id={{result.id}}>{{result.name}}</span>
+    </div>
+  </div>
+</div>

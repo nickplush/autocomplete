@@ -1,0 +1,55 @@
+:host {
+    position: absolute;
+  }
+  
+  .open {
+    display: flex;
+  }
+  
+  .close {
+    display: none;
+  }
+  
+  .autocomplete-panel {
+    max-height: 210px;
+    width: 100%;
+    display: block;
+    border: 1px solid #ebe5e5;
+    background-color: #fff;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12); 
+    border-radius: 2px;
+    color: #333333d3;
+    flex-direction: column;
+    overflow-y: auto;
+    z-index: 1;
+  }
+  
+  .option {
+    font-weight: bold;
+    font-size: 13px;
+    color:#333333d3;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .option:focus {
+    outline: none;
+  }
+  
+  .option:hover {
+    background-color: rgb(236, 232, 232);
+    cursor: pointer;
+  }
+    
+  .option.active {
+    background-color:rgb(6, 87, 180);
+    color: white; 
+  }
+  

@@ -47,7 +47,7 @@ export class AutocompleteComponent {
 
   @HostListener("keyup.Enter", ["$event"]) onEnter() {
     const variant = this.results[this.tabIndex];
-    if (variant) {
+    if (variant && this.visibility) {
       this.onSelect(variant);
     }   
   }
@@ -69,6 +69,7 @@ export class AutocompleteComponent {
     setTimeout(()=>{
       const inputElement = document.getElementById('autocomplete-input') as HTMLInputElement | null;
       if (inputElement) {
+        inputElement.focus()
         inputElement.setSelectionRange(cursorPosition,cursorPosition);
       }
     }, 1)
@@ -103,7 +104,11 @@ export class AutocompleteComponent {
     this.value = newV
     this.visibility = false
     const newCursorPosition = start + option.value.length-1
+    if (option.type === 'func'){
     this.setCursorPosition(newCursorPosition)
+    } else {
+      this.setCursorPosition(newCursorPosition+1)
+    }
   }
 
   focusElement = (): void => {
